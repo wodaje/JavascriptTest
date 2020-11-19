@@ -12,8 +12,11 @@ body {
   background-color: white;
 }
 
-h1 {text-align: center;}
-p {text-align: center;}
+h1 {text-align: center;
+font-size: 3.0rem;
+padding-top: 25px}
+
+pre {text-align: center;}
 
 .container {
   width: 1024px;
@@ -40,8 +43,11 @@ p {text-align: center;}
     background-color: #333;
   }
 
-  h1 {text-align: center;}
-  p {text-align: center;}
+  h1 {text-align: center;
+  font-size: 2rem
+  padding-top: 20px}
+
+  pre {text-align: center;}
 
   .container {
     width: 100%;
@@ -59,8 +65,11 @@ p {text-align: center;}
 
 @media screen and (max-width: 320px) {
   
-  h1 {text-align: center;}
-  p {text-align: center;}
+  h1 {text-align: center;
+  font-size 1.5rem
+  padding-top: 15px}
+
+  pre{text-align: center;}
   
   body {
     background-color: #333;
@@ -82,8 +91,11 @@ p {text-align: center;}
 /* Width at 168px and below */
 @media screen and (max-width: 168px) {
   
-  h1 {text-align: center;}
-  p {text-align: center;}
+  h1 {text-align: center;
+  font-size: 1rem
+  padding-top: 10px}
+
+  pre {text-align: center;}
   
   body {
     background-color: #333;
