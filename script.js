@@ -3,4 +3,13 @@
 var trueFalse  = Boolean
 var multipleChoice = 'ABCD'.split('')
 
-var
+
+var mainEl = document.getElementById("main")
+
+console.log(mainEl)
+
+$("#main").on("click", function(){
+
+    $("#main").text("")
+
+})

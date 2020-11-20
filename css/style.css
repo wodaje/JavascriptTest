@@ -19,7 +19,7 @@ padding-top: 25px}
 pre {text-align: center;}
 
 .container {
-  width: 1024px;
+  width: 800px;
   
   margin: 40px auto;
 }
@@ -72,7 +72,7 @@ pre {text-align: center;}
   pre{text-align: center;}
   
   body {
-    background-color: #333;
+    background-color: white;
   }
 
   .container {
@@ -98,7 +98,7 @@ pre {text-align: center;}
   pre {text-align: center;}
   
   body {
-    background-color: #333;
+    background-color: white;
   }
 
   .container {
