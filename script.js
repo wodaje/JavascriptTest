@@ -41,3 +41,13 @@ $("#main").on("click", function(){
     btnEl.style.visibility = "visible"
 
 })
+
+function testRun(){
+
+    btnEl.style.visibility = "hidden"
+
+    mainEl.removeChild(li1)
+    mainEl.removeChild(li2)
+    mainEl.removeChild(li3)
+    mainEl.removeChild(li4)
+}
