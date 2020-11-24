@@ -4,6 +4,18 @@
   box-sizing: border-box;
 }
 
+#btn1{
+background-color: teal;
+color: white;
+width: 200px;
+height: 100px;
+text-align: center;
+font-size: 30px;
+float: right;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+visibility: hidden;
+}
+
 body {
 
   font-size: 18px;
