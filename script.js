@@ -1,21 +1,23 @@
 var body = document.body
 
 var mainEl = document.getElementById("main")
+var mainContEl = document.getElementsByClassName("container")
 var questionEl = document.getElementById("question")
+var btnEl = document.getElementById("btn1")
+
+//var questionEl = document.getElementById("question")
 
 var listEl = document.createElement("ol")
 var li1 = document.createElement("li")
 var li2 = document.createElement("li")
 var li3 = document.createElement("li")
 var li4 = document.createElement("li")
-var questionLoop = document.createElement("div")
-var timeEl = document.createElement("h1")
-var answerChoice = document.createElement("div")
-var questionList = document.createElement("div")
-var btnEl = document.getElementById("btn1")
+var timeEl = document.createElement("p")
+var answerChoiceEl = document.createElement("div")
 
 var listItems = document.getElementsByTagName("li")
 
+var secondsLeft = 10
 var answerKey = ""
 
 li1.textContent = "You will have 3 min or 180 Seconds to compete!"
@@ -45,9 +47,37 @@ $("#main").on("click", function(){
 function testRun(){
 
     btnEl.style.visibility = "hidden"
-
     mainEl.removeChild(li1)
     mainEl.removeChild(li2)
     mainEl.removeChild(li3)
     mainEl.removeChild(li4)
+
+    
+    mainEl.appendChild(timeEl)
+    var para = document.createElement("p")
+    para.innerHTML = "This is bla bla"
+    questionEl.appendChild(para)
+   // questionEl.innerHTML(timeEl)
+    
+      
+    startTimer()
+
+        
 }
+
+function startTimer() {  
+    timeEl.textContent = secondsLeft + " seconds to start!"
+    var timerInterval = setInterval(() => {
+    secondsLeft--
+    timeEl.textContent = secondsLeft + " seconds left in the game!"
+
+    if(secondsLeft === 0){
+        clearInterval(timerInterval)
+        timeEl.textContent = " Finished!"
+        alert("timer done")
+    }
+
+    }, 1000);
+
+        
+  }
