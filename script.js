@@ -28,8 +28,9 @@ var answerKey
 var gameScore = 0
 var x = 0
 var y = 0
+var b = 0
 
-li1.textContent = "You will have 3 min or 180 Seconds to compete!"
+li1.textContent = "You will have 90 Seconds to compete!"
 li2.textContent = "Wrong answers will deduct 20seconds off the clock!"
 li3.textContent = "Are you are ready to test your knowlege?"
 li4.textContent = "Click NEXT when you are ->Ready<- ->>Steady<<- GO!!!"
@@ -88,7 +89,7 @@ function setRun(){
         
 }
 
-var secondsLeft = 60
+var secondsLeft = 90
 function startTimer() {  
     timeEl.textContent = secondsLeft + " seconds to start!"
     var timerInterval = setInterval(() => {
@@ -98,6 +99,13 @@ function startTimer() {
     if(secondsLeft <= 0){
         clearInterval(timerInterval)
         timeEl.textContent = " Finished!"
+        b++
+        resetAnswer()
+        initialButtons()
+            alert("Time is ER Finito... NO more Finished!")
+            liH.textContent = "Your Final Score is " + gameScore
+            mainEl.appendChild(liH)       
+        writeFinalScore()
     }
 
     }, 1000);
@@ -120,6 +128,8 @@ function startTimer() {
   btnD.setAttribute("style", "background-color: #666666; font-size: 20px; padding: 20px")
 
 function initialButtons(){
+
+    if (b === 0){ 
       
     buttonsEl.appendChild(btnA)
     buttonsEl.appendChild(btnB)  
@@ -130,11 +140,19 @@ function initialButtons(){
     btnB.addEventListener("click",function(){userAnswer ="B"; resetAnswer()})
     btnC.addEventListener("click",function(){userAnswer ="C"; resetAnswer()})
     btnD.addEventListener("click",function(){userAnswer ="D"; resetAnswer()})  
+    }
+    else if (b ===1){
+    buttonsEl.removeChild(btnA)
+    buttonsEl.removeChild(btnB)  
+    buttonsEl.removeChild(btnC)  
+    buttonsEl.removeChild(btnD)
+
+    }
 
 }
 
 
-  function questionLoop(){ 
+function questionLoop(){ 
        
     userAnswer = ""
     answerKey =  questionList[x].answerKey  
@@ -151,47 +169,48 @@ function initialButtons(){
     questionEl.appendChild(li2)
     questionEl.appendChild(li3)
     questionEl.appendChild(li4)
-
-    //btnA.addEventListener("click",function(){userAnswer ="A"; resetAnswer()})
-    //btnB.addEventListener("click",function(){userAnswer ="B"; resetAnswer()})
-    //btnC.addEventListener("click",function(){userAnswer ="C"; resetAnswer()})
-    //btnD.addEventListener("click",function(){userAnswer ="D"; resetAnswer()})    
-
-   
-  }
+      
+}
 
 function resetAnswer(){
+
+    if(b === 0){
+
+        if(userAnswer === answerKey){
+        gameScore = gameScore +20
+        console.log(gameScore)
+        alert("That was correct <Yeah Baby Yeah> Your Score is now " + gameScore)
+        }
+        else if(userAnswer !== answerKey){
+        alert("Noooooo Wrong Answer Mon! Not <<" + userAnswer + ">> You just lost 20 Seconds!!" )
+        secondsLeft = secondsLeft -20
+
+        }
     
-    if(userAnswer === answerKey){
-    gameScore = gameScore +20
-    console.log(gameScore)
-    alert("That was correct <Yeah Baby Yeah> Your Score is now " + gameScore)
+        questionEl.removeChild(liH)
+        questionEl.removeChild(br)
+        questionEl.removeChild(li1)
+        questionEl.removeChild(li2)
+        questionEl.removeChild(li3)
+        questionEl.removeChild(li4)
+
+        x ++
+        questionLoop()
+
+    } 
+    
+    else if (b ===1){
+        questionEl.removeChild(liH)
+        questionEl.removeChild(br)
+        questionEl.removeChild(li1)
+        questionEl.removeChild(li2)
+        questionEl.removeChild(li3)
+        questionEl.removeChild(li4)
     }
-    else if(userAnswer !== answerKey){
-    alert("Noooooo Wrong Answer Mon! Not <<" + userAnswer + ">> You just lost 20 Seconds!!" )
-    secondsLeft = secondsLeft -20
-
-    }
-
-    questionEl.removeChild(liH)
-    questionEl.removeChild(br)
-    questionEl.removeChild(li1)
-    questionEl.removeChild(li2)
-    questionEl.removeChild(li3)
-    questionEl.removeChild(li4)
-
-if (secondsLeft > 0){
-    x ++
-    questionLoop()
-}
-else if (secondsLeft <=0 ){
-    alert("Time is ER Finito... NO more Finished!")
-    writeFinalScore()
 }
 
 function writeFinalScore(){
-alert("write out local storage")
+        alert("not User High score yet")
 
 }
       
-}

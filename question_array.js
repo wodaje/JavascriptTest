@@ -50,5 +50,36 @@ var questionList = [
     },
     answerKey: "D"
     },
+
+    {q: "Can You add elements to a page dynamically using JavaScript? ",
+    answerChoice: {
+    "A": "Most definitely not, except if you have JQuery add ons",
+    "B": "I think eating an Ice Cream be less frustrating",
+    "C": "Why Yes - would you like me to show you how just check WWW3 schools!",
+    "D": "No NO NO - Nein Nein Nein Non Non Niet Nix Null Niento pas possible!"
+    },
+    answerKey: "C"
+    },
+
+    {q: "If You got this far you are either too smart, cheating or too stupid ",
+    answerChoice: {
+    "A": "all of the Above",
+    "B": "How Dare you say this - you figured out the random feature -  this is the first question!",
+    "C": "There once was a little rabbit that lived deeep underground eh - no ",
+    "D": "Unrecoverable Error - Unrecoverable Error - Unrecoverable Error"
+    },
+    answerKey: "A"
+    },
+
+    {q: "If JavaScript writes out sound and your speaker is off can you still hear it? ",
+    answerChoice: {
+    "A": "Maybe !",
+    "B": "No = what kind of question is this ?",
+    "C": "Yes for sure I can hear and see everything alwasy",
+    "D": "Unrecoverable Error - Unrecoverable Error - Unrecoverable Error"
+    },
+    answerKey: "B"
+    },
+    
 ]
 
