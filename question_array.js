@@ -1,17 +1,17 @@
 
 var questionList = [
 
-    {q1: "What are the 5 main data types within Javascript?",
+    {q: "What are the 5 main data types within Javascript?",
     answerChoice: {
-    "A": "Boolean, skirts, functions, strings, arrays",
-    "B": "Boolean, strings, objects, number, array",
-    "C": "Boolean, objects, shorts, forks, strings",
-    "D": "Boolean, strings, arrays, functions, objects"
+    "A": "A: < Boolean, Skirts, Functions, Strings, Arrays >",
+    "B": "B: < String, Boolean, Object, Number, Array >",
+    "C": "C: < Objects, Boolean, Shorts, Forks, Starings >",
+    "D": "D: < Array, Strings, Flings, Functions, Objects >"
     },
     answerKey: "B"
     },
 
-    {q2: "Can you write a function within a function?",
+    {q: "Can you write a function within a function?",
     answerChoice: {
     "A": "No that is illegal and will blow up the server!",
     "B": "You could but would you want too?",
@@ -21,23 +21,27 @@ var questionList = [
     answerKey: "B"
     },
 
-    {q3: "A boolean allows you to select three values!",
+    {q: "A boolean allows these two values:",
     answerChoice: {
-    "A": "False",
-    "B": "True",
+    "A": "A Loop & A Goop",
+    "B": "Submit & Click",
+    "C": "An Input value & An Output Value",
+    "D": "True & False"
     },
-    answerKey: "A"
+    answerKey: "D"
     },
 
-    {q4: "You don't have to worry about ending a loop as long as its written within a function",
+    {q: "JavaScript allows you to crash a server",
     answerChoice: {
-    "A": "True",
-    "B": "False",
+    "A": "No way JavaScript is just a language",
+    "B": "You need the add on Crasher for that feature",
+    "C": "Depending how you write code it is possible",
+    "D": "Dream on - every server these days has the Defender app and its simply never possible"
     },
-    answerKey: "B"
+    answerKey: "C"
     },
 
-    {q5: "Switch is a function within JavaScript that allows you to change the delcaration of a variable",
+    {q: "Switch is a function within JavaScript that allows you to change the delcaration of a variable",
     answerChoice: {
     "A": "Most definitely, except the object to array exception",
     "B": "No, Switch doesn't exists in JavaScript",
