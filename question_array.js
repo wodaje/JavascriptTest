@@ -41,7 +41,7 @@ var questionList = [
     answerKey: "C"
     },
 
-    {q: "Switch is a function within JavaScript that allows you to change the delcaration of a variable",
+    {q: "Switch is a function within JavaScript that allows you to change the declaration of a variable",
     answerChoice: {
     "A": "Most definitely, except the object to array exception",
     "B": "No, Switch doesn't exists in JavaScript",
@@ -81,5 +81,24 @@ var questionList = [
     answerKey: "B"
     },
     
+    {q: "If Trump were asked to write JavaScript what would be the most likely answer? ",
+    answerChoice: {
+    "A": "Deligation!",
+    "B": "Thats a really great script, a really great guy wrote it - it's just not for me to use !",
+    "C": "This has nothing to do with me wanting to re-write the election outcome!",
+    "D": "I will have my sexsetrary look into it!"
+    },
+    answerKey: "B"
+    },
+
+    {q: "What is the maximum age to still effectively be able to learn JavaScript ? ",
+    answerChoice: {
+    "A": "Clearly the guy who wrote this question is an old fart - there is no max age!",
+    "B": "It depends if you grew up with computers",
+    "C": "Dinosaurs wrote in JavaScript they just had a different name for it and look what happened to them!",
+    "D": "I ahm, I ahm, I ahm think I have to think about this question closely - therefore I must be too old!"
+    },
+    answerKey: "A"
+    },
 ]
 

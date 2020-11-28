@@ -6,10 +6,13 @@ var questionEl = document.getElementById("question")
 var btnEl = document.getElementById("btn1")
 var buttonsEl = document.getElementById("buttons")
 
+
+
 // Create Elements
 var headerInstTest = document.createElement("p")
 var breakLine = document.createElement("hr")
 var breakSpace = document.createElement("br")
+var ansDispEl = document.createElement("p")
 var liH = document.createElement("p")
 var listEl = document.createElement("ol")
 var li1 = document.createElement("li")
@@ -18,13 +21,16 @@ var li3 = document.createElement("li")
 var li4 = document.createElement("li")
 var br = document.createElement("br")
 var timeEl = document.createElement("p")
-
-// Set Variables as well as List Element Umbrella
 var listItems = document.getElementsByTagName("li")
+var labelEl = document.createElement("label")
+var inputBoxEl = document.createElement("form")
+
+// Set Variables
 var userAnswer = ""  
 var questionListEl = ""
 var answerKey
 var gameScore = 0
+var highScore = 0
 var x = 0
 var y = 0
 var b = 0
@@ -86,7 +92,9 @@ function setRun(){
     mainEl.appendChild(timeEl)
     mainEl.appendChild(breakLine)
     mainEl.appendChild(breakSpace)
-         
+    ansDispEl.textContent = ""
+    mainEl.hasPointerCapture(ansDispEl)
+        
     startTimer()
     initialButtons()
     questionLoop()
@@ -103,11 +111,10 @@ function startTimer() {
         clearInterval(timerInterval)
         timeEl.textContent = " Finished!"
         b++
+        ansDispEl.textContent = "Your Final Score is " + gameScore
+        mainEl.appendChild(ansDispEl)     
         resetAnswer()
         initialButtons()
-            //alert("Time is ER Finito... NO more Finished!")
-            liH.textContent = "Your Final Score is " + gameScore
-            mainEl.appendChild(liH)       
         writeFinalScore()
     }
 
@@ -148,7 +155,6 @@ function questionLoop(){
     li3.textContent = questionList[x].answerChoice["C"]
     li4.textContent = questionList[x].answerChoice["D"]
 
-    questionEl.appendChild(br)
     questionEl.appendChild(liH)
     questionEl.appendChild(br)
     questionEl.appendChild(li1)
@@ -164,12 +170,13 @@ function resetAnswer(){
 
         if(userAnswer === answerKey){
         gameScore = gameScore +20
-        console.log(gameScore)
-        alert("That was correct <Yeah Baby Yeah> Your Score is now " + gameScore)
+        ansDispEl.textContent = "Current Score: " + gameScore + " ...Your Choice: " + userAnswer + " was correct"
+        mainEl.appendChild(ansDispEl)        
         }
         else if(userAnswer !== answerKey){
-        alert("Noooooo Wrong Answer Mon! Not <<" + userAnswer + ">> You just lost 20 Seconds!!" )
         secondsLeft = secondsLeft -20
+        ansDispEl.textContent ="Current Score: " + gameScore + " ...<< Incorrect>> - 20 Second loss!"
+        mainEl.appendChild(ansDispEl)
         }
 
         questionEl.removeChild(liH)
@@ -195,7 +202,10 @@ function resetAnswer(){
 
 // writes score to local storage and allows user input for high score
 function writeFinalScore(){
-        alert("not User High score yet")
+        localStorage.setItem("gameScore",gameScore)
+        
 
 }
       
+//<label for="inititals">Inititals</label>
+//<input type="text" name="initials" id="initials" placeholder="JW" />
