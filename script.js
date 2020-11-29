@@ -2,11 +2,9 @@ var body = document.body
 
 // Set up Elments 
 var mainEl = document.getElementById("main")
+var buttonsEl = document.getElementById("buttons")
 var questionEl = document.getElementById("question")
 var btnEl = document.getElementById("btn1")
-var buttonsEl = document.getElementById("buttons")
-
-
 
 // Create Elements
 var headerInstTest = document.createElement("p")
@@ -22,19 +20,19 @@ var li4 = document.createElement("li")
 var br = document.createElement("br")
 var timeEl = document.createElement("p")
 var listItems = document.getElementsByTagName("li")
-var labelEl = document.createElement("label")
-var inputBoxEl = document.createElement("form")
 
 // Set Variables
 var userAnswer = ""  
 var questionListEl = ""
 var answerKey
 var gameScore = 0
-var highScore = 0
+var highScore = localStorage.getItem("highScore")
 var x = 0
 var y = 0
 var b = 0
 var secondsLeft = 90
+
+localStorage.setItem("highScore", highScore)
 
 //Populate List for Test Start Dynamic Display
 li1.textContent = "You will have 90 Seconds to compete!"
@@ -55,6 +53,9 @@ li4.textContent = "Click NEXT when you are ->Ready<- ->>Steady<<- GO!!!"
  var btnD = document.createElement("button")
  btnD.innerHTML = "Answer: D"
  btnD.setAttribute("style", "background-color: #666666; font-size: 20px; padding: 20px")
+ var btnF = document.createElement("button")
+ btnF.innerHTML = "Play Again"
+ btnF.setAttribute("style", "color: white; background-color: teal; font-size: 40px; padding: 40px; float: right")
 
 // Controls Next Button Feature with dual usage using y contorl variable
  function nextButton(){
@@ -201,11 +202,25 @@ function resetAnswer(){
 }
 
 // writes score to local storage and allows user input for high score
-function writeFinalScore(){
-        localStorage.setItem("gameScore",gameScore)
+function writeFinalScore(){        
         
+        if (gameScore >= highScore){
+            alert("Congrats you just achieved a new high score!")
+            let userInitial = prompt("Enter your initials if you like to store it for the record!")
+            highScore = gameScore
+            liH.innerText = "Initials | < " + userInitial + " > |  High Score < " + highScore + " > |"
+            questionEl.appendChild(liH)
+            localStorage.setItem("userInitial", userInitial)
+            localStorage.setItem("highScore", highScore)
+        }
+        else if (gameScore < highScore){
+            userInitial = localStorage.getItem("userInitial")
 
+            liH.innerText = "Initials | < " + userInitial + " > |  High Score < " + highScore + " > |"
+            questionEl.appendChild(liH)
+        }
+        
+buttonsEl.appendChild(btnF)
+btnF.addEventListener("click", function(){location.reload()})
 }
       
-//<label for="inititals">Inititals</label>
-//<input type="text" name="initials" id="initials" placeholder="JW" />
