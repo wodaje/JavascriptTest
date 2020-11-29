@@ -1,4 +1,10 @@
 # JavascriptTest written by Jeff Woda  28 November 2020
+    Kown Bugs/Issues:
+    a) if the question array runs out of question there is no if/saftey loop to catch that - normally the question array would be long enough but either way this feature doesn't exist so if you run out of questions before the time finishes the clean up function fails and no highscore is displayed etc.
+    b) code has duplicate typings could easily be cleaned up more 
+    c) Local storage works fine on my machine but on the uploaded git site when testing the local storage feature fails - no time to investigate why
+
+
     Script File Notes
 1.  This consitutes two script files script.js for the dynamic control of the display
 2.  And second question_array.js for the question module object array
