@@ -27,12 +27,13 @@ var questionListEl = ""
 var answerKey
 var gameScore = 0
 var highScore = localStorage.getItem("highScore")
+// control variables for loops
 var x = 0
 var y = 0
 var b = 0
-var secondsLeft = 90
 
-localStorage.setItem("highScore", highScore)
+// timer variable 
+var secondsLeft = 90
 
 //Populate List for Test Start Dynamic Display
 li1.textContent = "You will have 90 Seconds to compete!"
@@ -203,20 +204,27 @@ function resetAnswer(){
 
 // writes score to local storage and allows user input for high score
 function writeFinalScore(){        
-        
+
+    if (highScore === "null") {
+    
+        highScore = 0
+    }
+
+
+    
         if (gameScore >= highScore){
-            alert("Congrats you just achieved a new high score!")
-            let userInitial = prompt("Enter your initials if you like to store it for the record!")
+            //alert("Congrats you just achieved a new high score!")
+            //let userInitial = prompt("Enter your initials if you like to store it for the record!")           
             highScore = gameScore
-            liH.innerText = "Initials | < " + userInitial + " > |  High Score < " + highScore + " > |"
-            questionEl.appendChild(liH)
-            localStorage.setItem("userInitial", userInitial)
-            localStorage.setItem("highScore", highScore)
+            console.log("if statement triggered")
+            inputForm()
+            
         }
         else if (gameScore < highScore){
             userInitial = localStorage.getItem("userInitial")
 
-            liH.innerText = "Initials | < " + userInitial + " > |  High Score < " + highScore + " > |"
+            liH.innerText = "Initials | < " + userInitial  + " > |  High Score < " + highScore + " > |"
+          
             questionEl.appendChild(liH)
         }
         
@@ -224,3 +232,31 @@ buttonsEl.appendChild(btnF)
 btnF.addEventListener("click", function(){location.reload()})
 }
       
+function inputForm(){
+    
+    var userInitial = document.createElement("input")
+    userInitial.classList.add("UI")
+    
+
+    var btnG = document.createElement("button")
+    btnG.addEventListener("click", function(event){
+        event.preventDefault()
+        var userInitialInput = userInitial.value.trim()
+        writeHigh(userInitialInput)
+    })
+    btnG.innerHTML = "Commit High Score"
+    btnG.setAttribute("style", "background-color: green; font-size: 20px; padding: 20px")
+    buttonsEl.appendChild(userInitial)
+    buttonsEl.appendChild(btnG)
+    
+}
+
+function writeHigh(initials){
+
+
+    liH.innerText = "Initials | < " + initials + " > |  High Score < " + highScore + " > |"
+    questionEl.appendChild(liH)
+    localStorage.setItem("userInitial", initials)
+    localStorage.setItem("highScore", highScore)
+
+}

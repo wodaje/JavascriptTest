@@ -38,6 +38,11 @@ font-size: 2.0rem;
 color: darkblue;
 }
 
+.UI{
+height: 60px;
+
+}
+
 .container {
   width: 800px;
   
